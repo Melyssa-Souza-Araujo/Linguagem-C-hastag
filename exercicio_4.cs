@@ -10,7 +10,7 @@ namespace exercicio_4
     {
         static void Main(string[] args)
         {
-            float nota1, nota2, nota3, nota4, media, somaNotas = 0;
+            float nota1, nota2, nota3, nota4, media, somaNotas = 0F;
 
             Console.WriteLine("Coloque a primeira nota ");
             nota1 = Convert.ToSingle(Console.ReadLine());
