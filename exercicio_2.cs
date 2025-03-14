@@ -16,7 +16,7 @@ namespace exercicio_1
             Console.WriteLine("Insira seu nome: ");
             nomeUsuario = Console.ReadLine();
             Console.WriteLine("Insira seu sexo (F ou M): ");
-            sexoUsuario = Console.ReadLine();
+            sexoUsuario = Convert.ToChar(Console.ReadLine());
 
             if (sexoUsuario == 'F')
             {
