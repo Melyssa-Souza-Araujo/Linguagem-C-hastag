@@ -10,32 +10,23 @@ namespace exercicio_1
     {
         static void Main(string[] args)
         {
-           const float PRECO_ALUNO = 0.30F;
-           const float PRECO_NAO_ALUNO = 0.50F;
-           float resultado = 0F;
-           string resposta = "";
+            double precoAluno = 0.30D;
+ double precoNaoAluno = 0.50;
+ double valorAluno = 0;
+ double valorNaoAluno = 0;
 
-           Console.WriteLine("Você é um aluno? Responda com sim ou não");
-           resposta = Console.ReadLine();
+ Console.WriteLine("Tabela de Preços da Copiadora");
+ Console.WriteLine("- - - - - - - - - - - -");
+ Console.WriteLine("| Quantidade | Aluno (R$) | Não Aluno (R$) |");
+ Console.WriteLine("- - - - - - - - - - - -");
 
-           if (resposta == "sim")
-           {
-               for (int i = 1; i <= 100; i++)
-               {
-                   Console.WriteLine("Tabela de preço de Xerox para alunos");
-                   resultado = PRECO_ALUNO * i;
-                   Console.WriteLine(PRECO_ALUNO + " * " + i + " = " + resultado);
-               }
-           }
-           if (resposta == "não")
-           {
-               for (int i = 1; i <= 100; i++)
-               {
-                   Console.WriteLine("Tabela de preço de Xerox");
-                   resultado = PRECO_NAO_ALUNO * i;
-                   Console.WriteLine(PRECO_NAO_ALUNO + " * " + i + " = " + resultado);
-               }
-           }
+ for (int i = 1; i <= 100; i++)
+ {
+     valorAluno = i * precoAluno;
+     valorNaoAluno = i * precoNaoAluno;
+     Console.WriteLine("| " + i + " | " + valorAluno + " | " + valorNaoAluno + " |");
+ }
+ Console.WriteLine("- - - - - - - - - - - -");
          }
     }
 }
