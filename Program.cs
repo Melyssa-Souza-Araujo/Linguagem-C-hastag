@@ -13,6 +13,7 @@ namespace TEPOOExemploCamadas
                 Console.WriteLine("1 - Cadastrar Cliente");
                 Console.WriteLine("2 - Listar Clientes");
                 Console.WriteLine("3 - Excluir Cliente");
+                Console.WriteLine("4 - Atualizar Cliente");
                 Console.WriteLine("0 - Sair");
                 Console.Write("Escolha uma opção: ");
 
@@ -35,9 +36,10 @@ namespace TEPOOExemploCamadas
                 else if (opcao == 2)
                 {
                     Console.WriteLine("\n--- Lista de Clientes ---");
-                    foreach (var cliente in service.ObterClientes())
+                    var clientes = service.ObterClientes();
+                    for (int i = 0; i < clientes.Count; i++)
                     {
-                        Console.WriteLine(cliente);
+                        Console.WriteLine($"{i + 1} - {clientes[i]}");
                     }
                     Console.WriteLine();
                 }
@@ -53,6 +55,38 @@ namespace TEPOOExemploCamadas
                     catch (Exception ex)
                     {
                         Console.WriteLine($"Erro: {ex.Message}\n");
+                    }
+                }
+                else if (opcao == 4)
+                {
+                    var clientes = service.ObterClientes();
+
+                    if (clientes.Count == 0)
+                    {
+                        Console.WriteLine("Não há clientes para atualizar.\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n--- Atualizar Cliente ---");
+                        for (int i = 0; i < clientes.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1} - {clientes[i]}");
+                        }
+
+                        Console.Write("Digite o número do cliente que deseja atualizar: ");
+                        int indice = int.Parse(Console.ReadLine()) - 1;
+
+                        Console.Write("Digite o novo nome: ");
+                        string novoNome = Console.ReadLine();
+
+                        if (service.AlterarCliente(indice, novoNome))
+                        {
+                            Console.WriteLine("Cliente atualizado com sucesso!\n");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Opção inválida.\n");
+                        }
                     }
                 }
 
