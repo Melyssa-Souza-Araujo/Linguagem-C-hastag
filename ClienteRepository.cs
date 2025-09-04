@@ -23,5 +23,15 @@ namespace TEPOOExemploCamadas.Data
             }
             return false;
         }
+
+        public bool AlterarCliente(int indice, string novoNome)
+{
+    if (indice >= 0 && indice < clientes.Count)
+    {
+        clientes[indice] = novoNome;
+        return true;
+    }
+    return false;
+        }
     }
 }
