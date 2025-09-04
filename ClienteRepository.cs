@@ -13,5 +13,15 @@ namespace TEPOOExemploCamadas.Data
         {
             return clientes;
         }
+
+        public bool RemoverCliente(int indice)
+        {
+            if (indice >= 0 && indice < clientes.Count)
+            {
+                clientes.RemoveAt(indice);
+                return true;
+            }
+            return false;
+        }
     }
 }
