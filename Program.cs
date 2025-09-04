@@ -12,11 +12,12 @@ namespace TEPOOExemploCamadas
                 Console.WriteLine("=== SISTEMA DE CLIENTES (Arquitetura em Camadas) ===");
                 Console.WriteLine("1 - Cadastrar Cliente");
                 Console.WriteLine("2 - Listar Clientes");
+                Console.WriteLine("3 - Excluir Cliente");
                 Console.WriteLine("0 - Sair");
                 Console.Write("Escolha uma opção: ");
 
                 opcao = int.Parse(Console.ReadLine());
-                
+
                 if (opcao == 1)
                 {
                     Console.Write("Digite o nome do cliente: ");
@@ -39,6 +40,20 @@ namespace TEPOOExemploCamadas
                         Console.WriteLine(cliente);
                     }
                     Console.WriteLine();
+                }
+                else if (opcao == 3)
+                {
+                    Console.Write("Digite o nome do cliente a ser excluído: ");
+                    string nome = Console.ReadLine();
+                    try
+                    {
+                        service.ExcluirCliente(nome);
+                        Console.WriteLine("Cliente excluído com sucesso!\n");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Erro: {ex.Message}\n");
+                    }
                 }
 
             } while (opcao != 0);
