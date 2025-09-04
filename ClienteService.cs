@@ -1,20 +1,35 @@
+using System;
+using System.Collections.Generic;
+
 namespace TEPOOEExemploCamadas.Business
 {
-    internal class ClienteService
-    {
-        private ClienteRepository _repository = new ClienteRepository();
+    internal class ClienteService
+    {
+        private ClienteRepository _repository = new ClienteRepository();
 
-        public void CadastrarCliente(string nome)
-        {
-            if (string.IsNullOrWhiteSpace(nome))
-                throw new System.Exception("O nome não pode ser vazio!");
+        public void CadastrarCliente(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+                throw new Exception("O nome não pode ser vazio!");
 
-            _repository.Adicionar(nome);
-        }
+            _repository.Adicionar(nome);
+        }
 
-        public List<string> ObterClientes()
-        {
-            return _repository.Listar();
-        }
-    }
+        public List<string> ObterClientes()
+        {
+            return _repository.Listar();
+        }
+
+        // Método para alterar cliente
+        public bool AlterarCliente(int indice, string novoNome)
+        {
+            return _repository.AtualizarCliente(indice, novoNome);
+        }
+
+        // Método para excluir cliente
+        public void ExcluirCliente(int indice)
+        {
+            _repository.Remover(indice);
+        }
+    }
 }
